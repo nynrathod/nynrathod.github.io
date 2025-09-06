@@ -1,0 +1,183 @@
+---
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
+
+type Project = {
+	title: string;
+	href: string | null;
+	description: string;
+	github?: string;
+	date?: string;
+	thumbnail?: string | null;
+};
+
+const projects: Project[] = [
+	{
+		title: "Note taking app",
+		href: "https://notes.uoozer.com/",
+		description: "Uoozer note is a simple note taking app",
+		thumbnail: null, // or path to image if available
+	},
+	{
+		title: "React Starter template CLI",
+		href: "https://www.npmjs.com/package/@nynrathod/react-quick-starter",
+		description:
+			"A quick CLI tool to scaffold React + Vite projects with optional TypeScript and Tailwind CSS.",
+		github: "https://github.com/nynrathod/react-quick-starter",
+
+		thumbnail: null, // or path to image if available
+	},
+	{
+		title: "One click password automator",
+		href: "https://www.uoozer.com/password-automator",
+		description:
+			"Uoozer allows you to share access to apps like OTT platforms with your friends. Once a user login with your credentials, your device will receive the OTP for that app. Uoozer will then analyze the OTP and securely forward it to your friends",
+
+		thumbnail: null, // or path to image if available
+	},
+	{
+		title: "Rust blockchain",
+		href: null,
+		description:
+			"Uoozer allows you to share access to apps like OTT platforms with your friends. Once a user login with your credentials, your device will receive the OTP for that app. Uoozer will then analyze the OTP and securely forward it to your friends",
+		github: "https://github.com/nynrathod/rust-blockchain",
+		thumbnail: null, // or path to image if available
+	},
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nayan | Portfolio</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css"
+			integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<style>
+			h1,
+			h2,
+			h3 {
+				font-family: "Playfair Display", serif;
+			}
+			body {
+				font-family: "Inter", sans-serif;
+			}
+		</style>
+		<script
+			src="https://kit.fontawesome.com/a2e0f6ad7a.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body class="bg-white text-gray-800">
+		<!-- Hero -->
+		<section
+			id="home"
+			class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+			<h1 class="text-4xl sm:text-6xl font-bold mb-4">
+				Hi, I’m Nayan 👋
+			</h1>
+			<p class="text-lg text-gray-600 max-w-xl mb-6">
+				Software engineer building clean, fast, and scalable web and
+				mobile applications. I love solving problems and creating tools
+				that make life easier.
+			</p>
+		</section>
+
+		<!-- Portfolio Section -->
+		<section id="portfolio" class="max-w-5xl mx-auto py-20 px-6">
+			<h2 class="text-3xl font-semibold mb-10 text-center">
+				Personal Projects
+			</h2>
+			<div class="space-y-10">
+				{
+					projects.map((project) => (
+						<div class="flex items-start gap-6">
+							{project.thumbnail ? (
+								<div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+									<img
+										src={project.thumbnail}
+										alt={project.title}
+										class="w-full h-full object-cover rounded-full"
+									/>
+								</div>
+							) : null}
+							<div>
+								{project.date && (
+									<p class="text-sm text-gray-500">
+										{project.date}
+									</p>
+								)}
+								<h3 class="text-xl font-semibold">
+									{project.href ? (
+										<a
+											href={project.href}
+											class="underline">
+											{project.title}
+										</a>
+									) : (
+										project.title
+									)}
+								</h3>
+								<p class="text-gray-600 mt-2">
+									{project.description}
+								</p>
+								<div class="mt-2 space-x-4">
+									{project.github && (
+										<a
+											href={project.github}
+											class="text-blue-600 hover:underline"
+											target="_blank">
+											View on GitHub
+										</a>
+									)}
+									{/* Add more optional links like NPM, Play Store here */}
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="mt-10 text-center">
+				<a
+					href="https://github.com/nynrathod"
+					target="_blank"
+					class="inline-block px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-700 transition">
+					View More on GitHub
+				</a>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section id="contact" class="bg-gray-50 py-20 px-6 text-center">
+			<h2 class="text-3xl font-semibold mb-6">Get in Touch</h2>
+			<p class="text-gray-600 mb-6">
+				Open to freelance projects, collaborations, or just a chat.
+			</p>
+
+			<div class="flex justify-center gap-6 text-2xl text-gray-600 mt-8">
+				<a href="https://linkedin.com/in/nynrathod" target="_blank">
+					<Icon name="fa:linkedin" class="text-xl" />
+				</a>
+				<a href="https://github.com/nynrathod" target="_blank">
+					<Icon name="fa:github" class="text-xl text-gray-600" />
+				</a>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="py-6 text-center text-sm text-gray-500">
+			© {new Date().getFullYear()} Nayan. Built with Astro & Tailwind.
+		</footer>
+	</body>
+</html>
