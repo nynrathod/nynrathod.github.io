@@ -9,6 +9,7 @@ type Project = {
 	github?: string;
 	date?: string;
 	thumbnail?: string | null;
+	indusAppStore?: string;
 };
 
 const projects: Project[] = [
@@ -16,7 +17,8 @@ const projects: Project[] = [
 		title: "Note taking app",
 		href: "https://notes.uoozer.com/",
 		description: "Uoozer note is a simple note taking app",
-		thumbnail: null, // or path to image if available
+		thumbnail: null,
+		indusAppStore: "https://www.indusappstore.com/app/your-app-id",
 	},
 	{
 		title: "React Starter template CLI",
@@ -25,7 +27,7 @@ const projects: Project[] = [
 			"A quick CLI tool to scaffold React + Vite projects with optional TypeScript and Tailwind CSS.",
 		github: "https://github.com/nynrathod/react-quick-starter",
 
-		thumbnail: null, // or path to image if available
+		thumbnail: null,
 	},
 	{
 		title: "One click password automator",
@@ -33,7 +35,7 @@ const projects: Project[] = [
 		description:
 			"Uoozer allows you to share access to apps like OTT platforms with your friends. Once a user login with your credentials, your device will receive the OTP for that app. Uoozer will then analyze the OTP and securely forward it to your friends",
 
-		thumbnail: null, // or path to image if available
+		thumbnail: null,
 	},
 	{
 		title: "Rust blockchain",
@@ -41,7 +43,7 @@ const projects: Project[] = [
 		description:
 			"Uoozer allows you to share access to apps like OTT platforms with your friends. Once a user login with your credentials, your device will receive the OTP for that app. Uoozer will then analyze the OTP and securely forward it to your friends",
 		github: "https://github.com/nynrathod/rust-blockchain",
-		thumbnail: null, // or path to image if available
+		thumbnail: null,
 	},
 ];
 ---
@@ -77,8 +79,7 @@ const projects: Project[] = [
 		</style>
 		<script
 			src="https://kit.fontawesome.com/a2e0f6ad7a.js"
-			crossorigin="anonymous"
-		></script>
+			crossorigin="anonymous"></script>
 	</head>
 	<body class="bg-white text-gray-800">
 		<!-- Hero -->
@@ -142,7 +143,27 @@ const projects: Project[] = [
 											View on GitHub
 										</a>
 									)}
-									{/* Add more optional links like NPM, Play Store here */}
+									<div class="flex items-center gap-x-2">
+										{project.indusAppStore && (
+											<a
+												href="https://indusapp.store/367hn9af"
+												target="_blank">
+												<img
+													class="h-8"
+													alt="Get it on Indus Appstore"
+													src="https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-background-english.png"
+												/>
+											</a>
+										)}
+										{project.indusAppStore && (
+											<a
+												href={project.href}
+												target="_blank"
+												class="inline-block px-6 py-2 bg-gray-900 text-white text-xs rounded-sm hover:bg-gray-700 transition">
+												Open in Web
+											</a>
+										)}
+									</div>
 								</div>
 							</div>
 						</div>
