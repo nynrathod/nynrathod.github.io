@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import "../styles/global.css";
+import playBadge from "../assets/play-store.png";
 
 type Project = {
 	title: string;
@@ -154,7 +155,7 @@ const projects: Project[] = [
 												<img
 													class="h-8"
 													alt="Get it on Google Play"
-													src="./GetItOnGooglePlay_Badge_Web_color_English.png"
+													src={playBadge.src}
 												/>
 											</a>
 										)}
