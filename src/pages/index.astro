@@ -10,6 +10,7 @@ type Project = {
 	date?: string;
 	thumbnail?: string | null;
 	indusAppStore?: string;
+	playstore?: string;
 };
 
 const projects: Project[] = [
@@ -18,6 +19,8 @@ const projects: Project[] = [
 		href: "https://notes.uoozer.com/",
 		description: "Uoozer note is a simple note taking app",
 		thumbnail: null,
+		playstore:
+			"https://play.google.com/store/apps/details?id=com.uoozer.notes",
 		indusAppStore: "https://www.indusappstore.com/app/your-app-id",
 	},
 	{
@@ -144,6 +147,17 @@ const projects: Project[] = [
 										</a>
 									)}
 									<div class="flex items-center gap-x-2">
+										{project.playstore && (
+											<a
+												href={project.playstore}
+												target="_blank">
+												<img
+													class="h-12"
+													alt="Get it on Google Play"
+													src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+												/>
+											</a>
+										)}
 										{project.indusAppStore && (
 											<a
 												href="https://indusapp.store/367hn9af"
@@ -155,6 +169,7 @@ const projects: Project[] = [
 												/>
 											</a>
 										)}
+
 										{project.indusAppStore && (
 											<a
 												href={project.href}
